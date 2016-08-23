@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Contracts\CrudModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -19,7 +20,17 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Customer whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Customer extends Model
+class Customer extends Model implements CrudModel
 {
     protected $fillable = ['firstName', 'lastName'];
+
+    public function title()
+    {
+        return "$this->firstName $this->lastName";
+    }
+
+    public function path()
+    {
+        return "client/$this->id";
+    }
 }
