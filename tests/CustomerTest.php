@@ -6,16 +6,30 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CustomerTest extends TestCase
 {
+    use DatabaseTransactions;
 
-    public function testICanCreateUser()
+    public function testICanCreateCustomer()
     {
         $this->visit('/home')
             ->click('Client')
             ->click('Ajouter')
             ->type('firstName', 'firstName')
             ->type('lastName', 'lastName')
-            ->press('Créer')
-            ->see('firstName')
+            ->press('Créer');
+
+        $this->see('firstName')
             ->see('lastName');
     }
+
+    public function testICanSeeAListOfCustomer()
+    {
+        factory(\App\Customer::class)->create(['firstName' => 'client1']);
+        factory(\App\Customer::class)->create(['firstName' => 'client2']);
+
+        $this->visit('/client')
+            ->see('client1')
+            ->see('client2');
+    }
+
+
 }

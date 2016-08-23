@@ -18,3 +18,7 @@ if [ ! -f database.sqlite ]; then
     touch database/database.sqlite
     php artisan migrate
 fi
+
+php artisan clear-compiled
+php artisan ide-helper:generate
+vendor/bin/phpunit
