@@ -26,7 +26,7 @@ class CarsController extends Controller
 
     public function store(SaveCarRequest $request)
     {
-        $car = Car::create($request->only(['marque', 'modele', 'annee', 'no_plaque', 'no_serie', 'customer_id']));
+        $car = Car::create($request->all());
         $car->save();
         return redirect("/voiture/{$car->id}");
     }
@@ -49,7 +49,7 @@ class CarsController extends Controller
     {
         /** @var Car $car */
         $car = Car::findOrFail($id);
-        $car->update($request->only(['marque', 'modele', 'annee', 'no_plaque', 'no_serie', 'customer_id']));
+        $car->update($request->all());
         return redirect($car->path());
     }
 

@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Car whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Car whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Customer $customer
  */
 class Car extends Model implements CrudModel
 {

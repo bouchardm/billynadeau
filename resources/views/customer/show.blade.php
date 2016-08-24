@@ -1,17 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Client</div>
-                    <div class="panel-body">
-                        <p>Prénom: {{ $customer->firstName }}</p>
-                        <p>Nom de famille: {{ $customer->lastName }}</p>
-                    </div>
-                </div>
-            </div>
+@section('admin-content')
+    <h2>Informations</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Client {{ $customer->title() }}
+            <a href="{{ $customer->path() }}/edit">Éditer</a>
+        </div>
+        <div class="panel-body">
+            <p>Prénom: {{ $customer->firstName }}</p>
+            <p>Nom de famille: {{ $customer->lastName }}</p>
+            <p>Adresse: {{ $customer->address }}</p>
+            <p>Téléphone: {{ $customer->phone }}</p>
+            <p>Cellulaire: {{ $customer->cellphone }}</p>
         </div>
     </div>
+
+    <h2>Voitures</h2>
+    @each('customer.partials.car', $customer->cars, 'car')
 @endsection

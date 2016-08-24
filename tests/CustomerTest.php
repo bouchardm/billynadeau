@@ -1,5 +1,6 @@
 <?php
 
+use App\Customer;
 use App\Http\Requests\SaveCustomerRequest;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -16,10 +17,16 @@ class CustomerTest extends TestCase
             ->click('Ajouter')
             ->type('firstName', 'firstName')
             ->type('lastName', 'lastName')
+            ->type('address', 'address')
+            ->type('phone', 'phone')
+            ->type('cellphone', 'cellphone')
             ->press('Créer');
 
         $this->see('firstName')
-            ->see('lastName');
+            ->see('lastName')
+            ->see('address')
+            ->see('phone')
+            ->see('cellphone');
     }
 
     public function testICanSeeAListOfCustomer()
@@ -51,6 +58,17 @@ class CustomerTest extends TestCase
             ->see('editionFonctionnel');
 
         $this->assertContains("client/$customer->id", $this->currentUri);
+    }
+
+    public function testICanSeeTheCustomersCars()
+    {
+        $customer = factory(\App\Customer::class)->create(['firstName' => 'clientEdité']);
+        $car = factory(\App\Car::class)->create(['customer_id' => $customer->id]);
+
+        $this->visit($customer->path())
+            ->see($car->modele)
+            ->see($car->marque)
+            ->see($car->annee);
     }
 
     public function testICantSaveAInvalidCustomer()

@@ -23,14 +23,14 @@ class CustomerController extends Controller
 
     public function store(SaveCustomerRequest $request)
     {
-        $customer = Customer::create($request->only(['firstName', 'lastName']));
+        $customer = Customer::create($request->all());
         $customer->save();
         return redirect("/client/{$customer->id}");
     }
 
     public function show($id)
     {
-        $customer = Customer::findOrFail($id);
+        $customer = Customer::with('cars')->findOrFail($id);
         return view('customer.show', compact('customer'));
     }
 
@@ -44,7 +44,7 @@ class CustomerController extends Controller
     {
         /** @var Customer $customer */
         $customer = Customer::findOrFail($id);
-        $customer->update($request->only(['firstName', 'lastName']));
+        $customer->update($request->all());
         return redirect($customer->path());
     }
 
