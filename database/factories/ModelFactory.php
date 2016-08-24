@@ -38,3 +38,14 @@ $factory->define(App\Car::class, function (Faker\Generator $faker) {
         'no_serie' => $faker->word
     ];
 });
+
+$factory->define(App\Ticket::class, function (Faker\Generator $faker) {
+    return [
+        'no' => $faker->word,
+        'name' => $faker->word,
+        'description' => $faker->paragraph,
+        'customer_id' => function() {
+            return factory(App\Customer::class)->create()->id;
+        }
+    ];
+});

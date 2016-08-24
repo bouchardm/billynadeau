@@ -44,6 +44,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/client') }}">Client</a></li>
                     <li><a href="{{ url('/voiture') }}">Voiture</a></li>
+                    <li><a href="{{ url('/bon') }}">Bon de travail</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

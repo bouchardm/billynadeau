@@ -40,7 +40,6 @@ class CarsController extends Controller
     public function edit($id)
     {
         $car = Car::findOrFail($id);
-//        dd($car);
         $customers = Customer::all();
         return view('car.edit', compact('car', 'customers'));
     }

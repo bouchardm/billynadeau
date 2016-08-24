@@ -8,12 +8,12 @@
                 {{ method_field('put') }}
                 {{ csrf_field() }}
 
-                @include('partials.field.text', ['field' => 'marque', 'label' => 'marque', 'value' => $car->marque])
-                @include('partials.field.text', ['field' => 'modele', 'label' => 'Modèle', 'value' => $car->modele])
-                @include('partials.field.text', ['field' => 'annee', 'label' => 'Année', 'value' => $car->annee])
-                @include('partials.field.text', ['field' => 'no_plaque', 'label' => 'Numéro de plaque', 'value' => $car->no_plaque])
-                @include('partials.field.text', ['field' => 'no_serie', 'label' => 'Numéro de série', 'value' => $car->no_serie])
-                @include('partials.field.select', ['field' => 'customer_id', 'label' => 'Client', 'options' => $customers, 'value' => $car->customer_id])
+                @include('partials.field.text', ['field' => 'marque', 'value' => $car->marque])
+                @include('partials.field.text', ['field' => 'modele', 'value' => $car->modele])
+                @include('partials.field.text', ['field' => 'annee', 'value' => $car->annee])
+                @include('partials.field.text', ['field' => 'no_plaque', 'value' => $car->no_plaque])
+                @include('partials.field.text', ['field' => 'no_serie', 'value' => $car->no_serie])
+                @include('partials.field.select', ['field' => 'customer_id', 'options' => $customers, 'value' => $car->customer_id])
 
                 @include('partials.field.submit', ['label' => 'Sauvegarder'])
             </form>

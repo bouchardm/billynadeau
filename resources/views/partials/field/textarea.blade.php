@@ -2,13 +2,8 @@
     <label for="{{ $field }}" class="col-md-4 control-label">{{ trans("fields.{$field}") }}</label>
 
     <div class="col-md-6">
-        <input
-                id="{{ $field }}"
-                type="text"
-                class="form-control"
-                name="{{ $field }}"
-                value="{{ isset($value) ? $value : old($field) }}"
-        >
+
+        <textarea id="{{ $field }}" class="form-control" name="{{ $field }}">{{ isset($value) ? $value : old($field) }}</textarea>
 
         @if ($errors->has($field))
             <span class="help-block">

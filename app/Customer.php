@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Customer whereAddress($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Customer wherePhone($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Customer whereCellphone($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Car[] $cars
  */
 class Customer extends Model implements CrudModel
 {
