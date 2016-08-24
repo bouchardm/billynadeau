@@ -10,7 +10,11 @@
             <p>No: {{ $ticket->no }}</p>
             <p>Nom: {{ $ticket->name }}</p>
             <p>Description: <br>{{ $ticket->description }}</p>
-            <p>Client: <a href="{{ $ticket->customer->path() }}">{{ $ticket->customer->title() }}</a></p>
+            @if ($ticket->customer)
+                <p>Client: <a href="{{ $ticket->customer->path() }}">{{ $ticket->customer->title() }}</a></p>
+            @else
+                <span class="text-danger">Le client à été supprimé</span>
+            @endif
         </div>
     </div>
 
