@@ -28,3 +28,13 @@ $factory->define(App\Customer::class, function (Faker\Generator $faker) {
         'lastName' => $faker->lastName,
     ];
 });
+
+$factory->define(App\Car::class, function (Faker\Generator $faker) {
+    return [
+        'marque' => $faker->word,
+        'modele' => $faker->word,
+        'annee' => $faker->numberBetween(2000, 2100),
+        'no_plaque' => $faker->word,
+        'no_serie' => $faker->word
+    ];
+});

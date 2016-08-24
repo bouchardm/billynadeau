@@ -42,6 +42,7 @@ class CustomerController extends Controller
 
     public function update(SaveCustomerRequest $request, $id)
     {
+        /** @var Customer $customer */
         $customer = Customer::findOrFail($id);
         $customer->update($request->only(['firstName', 'lastName']));
         return redirect($customer->path());

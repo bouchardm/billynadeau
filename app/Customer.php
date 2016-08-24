@@ -31,6 +31,6 @@ class Customer extends Model implements CrudModel
 
     public function path()
     {
-        return "client/$this->id";
+        return "/client/$this->id";
     }
 }
