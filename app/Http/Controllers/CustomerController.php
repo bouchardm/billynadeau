@@ -30,7 +30,7 @@ class CustomerController extends Controller
 
     public function show($id)
     {
-        $customer = Customer::with('cars')->findOrFail($id);
+        $customer = Customer::with(['cars', 'tickets'])->findOrFail($id);
         return view('customer.show', compact('customer'));
     }
 

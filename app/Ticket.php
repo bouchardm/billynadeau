@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property integer $customer_id
  * @method static \Illuminate\Database\Query\Builder|\App\Ticket whereCustomerId($value)
+ * @property-read \App\Customer $customer
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Clock[] $clocks
  */
 class Ticket extends Model implements CrudModel
 {
@@ -33,6 +35,11 @@ class Ticket extends Model implements CrudModel
     public function customer()
     {
         return $this->belongsTo(Customer::class);
+    }
+
+    public function clocks()
+    {
+        return $this->hasMany(Clock::class);
     }
 
     public function title()

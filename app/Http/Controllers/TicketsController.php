@@ -32,7 +32,7 @@ class TicketsController extends Controller
 
     public function show($id)
     {
-        $ticket = Ticket::findOrFail($id);
+        $ticket = Ticket::with('clocks')->findOrFail($id);
         return view('ticket.show', compact('ticket'));
     }
 

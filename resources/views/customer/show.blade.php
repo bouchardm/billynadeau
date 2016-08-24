@@ -16,6 +16,13 @@
         </div>
     </div>
 
-    <h2>Voitures</h2>
-    @each('customer.partials.car', $customer->cars, 'car')
+    @if ($customer->cars->count() > 0)
+        <h2>Voitures</h2>
+        @each('customer.partials.car', $customer->cars, 'car')
+    @endif
+
+    @if ($customer->tickets->count() > 0)
+        <h2>Bons de travail</h2>
+        @each('customer.partials.ticket', $customer->tickets, 'ticket')
+    @endif
 @endsection

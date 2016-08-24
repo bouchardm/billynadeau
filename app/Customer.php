@@ -33,7 +33,12 @@ class Customer extends Model implements CrudModel
 
     public function cars()
     {
-        return $this->hasMany(Car::class);
+        return $this->hasMany(Car::class)->latest();
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class)->latest();
     }
 
     public function title()

@@ -12,10 +12,13 @@ return [
     'annee' => 'Année',
     'no_plaque' => 'Numéro de plaque',
     'no_serie' => 'Numéro de série',
-    
+
     'customer_id' => 'Client',
 
     'no' => 'Numéro',
     'name' => 'Nom',
     'description' => 'Description',
+
+    'start' => 'Début',
+    'end' => 'Fin',
 ];

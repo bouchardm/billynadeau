@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index');
 Route::resource('/client', 'CustomerController');
 Route::resource('/voiture', 'CarsController');
 Route::resource('/bon', 'TicketsController');
+Route::resource('/clock', 'ClocksController');
