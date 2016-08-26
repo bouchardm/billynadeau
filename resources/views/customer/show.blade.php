@@ -16,13 +16,15 @@
         </div>
     </div>
 
-    @if ($customer->cars->count() > 0)
-        <h2>Voitures</h2>
-        @each('customer.partials.car', $customer->cars, 'car')
-    @endif
+    <h2>Voitures</h2>
+    @each('customer.partials.car', $customer->cars, 'car')
+    <div class="text-right">
+        <a href="{{ url('/voiture/create') }}?customer_id={{ $customer->id }}">Ajouter</a>
+    </div>
 
-    @if ($customer->tickets->count() > 0)
-        <h2>Bons de travail</h2>
-        @each('customer.partials.ticket', $customer->tickets, 'ticket')
-    @endif
+    <h2>Bons de travail</h2>
+    @each('customer.partials.ticket', $customer->tickets, 'ticket')
+    <div class="text-right">
+        <a href="{{ url('/bon/create') }}?customer_id={{ $customer->id }}">Ajouter</a>
+    </div>
 @endsection

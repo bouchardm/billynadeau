@@ -9,10 +9,16 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class CustomerTest extends TestCase
 {
     use DatabaseTransactions;
+    
+    public function setUp()
+    {
+        parent::setUp();
+        $this->actingAsBasicUser();
+    }
 
     public function testICanCreateCustomer()
     {
-        $this->visit('/home')
+        $this->visit('/admin')
             ->click('Client')
             ->click('Ajouter')
             ->type('firstName', 'firstName')

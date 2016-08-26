@@ -22,4 +22,9 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+    protected function actingAsBasicUser()
+    {
+        $this->actingAs(factory(\App\User::class)->create());
+    }
 }

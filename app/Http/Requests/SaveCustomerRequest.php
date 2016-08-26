@@ -28,4 +28,12 @@ class SaveCustomerRequest extends FormRequest
             'lastName' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'firstName.required' => 'Le prénom est requis.',
+            'lastName.required' => 'Le nom de famille est requis.',
+        ];
+    }
 }

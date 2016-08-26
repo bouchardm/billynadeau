@@ -28,4 +28,12 @@ class SaveClockRequest extends FormRequest
             'end' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'start.required' => 'La date de début est requise (dd/mm/yyyy, hh:ss)',
+            'end.required' => 'La date de fin est requise (dd/mm/yyyy, hh:ss)',
+        ];
+    }
 }

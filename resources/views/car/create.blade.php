@@ -12,7 +12,7 @@
                 @include('partials.field.text', ['field' => 'annee'])
                 @include('partials.field.text', ['field' => 'no_plaque'])
                 @include('partials.field.text', ['field' => 'no_serie'])
-                @include('partials.field.select', ['field' => 'customer_id', 'options' => $customers])
+                @include('partials.field.select', ['field' => 'customer_id', 'options' => $customers, 'value' => request('customer_id')])
 
                 @include('partials.field.submit', ['label' => 'Créer'])
             </form>

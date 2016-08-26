@@ -29,4 +29,13 @@ class SaveTicketRequest extends FormRequest
             'customer_id' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'no.required' => 'Le numéro est requis.',
+            'name.required' => 'Le nom est requis.',
+            'customer_id.required' => 'Le client est requis.',
+        ];
+    }
 }

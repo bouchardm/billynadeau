@@ -9,7 +9,12 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ClockTest extends TestCase
 {
     use DatabaseTransactions;
-
+    
+    public function setUp()
+    {
+        parent::setUp();
+        $this->actingAsBasicUser();
+    }
 
     public function testICanAddAClockToATicket()
     {

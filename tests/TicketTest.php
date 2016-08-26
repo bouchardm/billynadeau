@@ -9,10 +9,16 @@ class TicketTest extends TestCase
 {
     use DatabaseTransactions;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->actingAsBasicUser();
+    }
+
     public function testICanCreateTicket()
     {
         $customer = factory(\App\Customer::class)->create();
-        $this->visit('/home')
+        $this->visit('/admin')
             ->click('Bon de travail')
             ->click('Ajouter')
             ->type('no', 'no')

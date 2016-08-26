@@ -35,7 +35,10 @@ $factory->define(App\Car::class, function (Faker\Generator $faker) {
         'modele' => $faker->word,
         'annee' => $faker->numberBetween(2000, 2100),
         'no_plaque' => $faker->word,
-        'no_serie' => $faker->word
+        'no_serie' => $faker->word,
+        'customer_id' => function() {
+            return factory(App\Customer::class)->create()->id;
+        }
     ];
 });
 

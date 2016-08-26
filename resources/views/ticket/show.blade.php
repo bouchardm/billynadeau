@@ -51,10 +51,6 @@
             </table>
         </div>
     </div>
-
-
-
-
     <div class="text-right">
         <a href="{{ url('/clock/create') }}?ticket_id={{ $ticket->id }}">Ajouter du temps</a>
     </div>

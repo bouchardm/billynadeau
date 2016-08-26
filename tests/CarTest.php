@@ -9,9 +9,15 @@ class CarTest extends TestCase
 {
     use DatabaseTransactions;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->actingAsBasicUser();
+    }
+
     public function testICanCreateCar()
     {
-        $this->visit('/home')
+        $this->visit('/admin')
             ->click('Voiture')
             ->click('Ajouter')
             ->type('marque', 'marque')

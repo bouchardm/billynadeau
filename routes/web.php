@@ -17,9 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/admin', function() {
+    return redirect('/client');
+});
 
-Route::resource('/client', 'CustomerController');
-Route::resource('/voiture', 'CarsController');
-Route::resource('/bon', 'TicketsController');
-Route::resource('/clock', 'ClocksController');
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('/client', 'CustomerController');
+    Route::resource('/voiture', 'CarsController');
+    Route::resource('/bon', 'TicketsController');
+    Route::resource('/clock', 'ClocksController');
+});
