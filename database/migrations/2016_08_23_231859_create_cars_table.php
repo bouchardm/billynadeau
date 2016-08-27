@@ -22,7 +22,7 @@ class CreateCarsTable extends Migration
             $table->string('no_serie');
 
             $table->unsignedInteger('customer_id')->nullable();
-            $table->foreign('customer_id')->references('id')->on('customer');
+            $table->foreign('customer_id')->references('id')->on('customers');
 
             $table->timestamps();
         });

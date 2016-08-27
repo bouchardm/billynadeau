@@ -18,7 +18,7 @@ class CreateClocksTable extends Migration
             $table->timestamp('start');
             $table->timestamp('end');
             $table->unsignedInteger('ticket_id');
-            $table->foreign('ticket_id')->references('id')->on('ticket');
+            $table->foreign('ticket_id')->references('id')->on('tickets');
             $table->timestamps();
         });
     }
