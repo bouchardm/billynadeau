@@ -15,11 +15,10 @@ class CreateClocksTable extends Migration
     {
         Schema::create('clocks', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('start');
-            $table->timestamp('end');
+            $table->timestamp('start')->nullable();
+            $table->timestamp('end')->nullable();
             $table->unsignedInteger('ticket_id');
             $table->foreign('ticket_id')->references('id')->on('tickets');
-            
             $table->timestamps();
         });
     }
