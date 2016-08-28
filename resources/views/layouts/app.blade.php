@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>Billy Nadeau</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
