@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/home', function() {
+    return redirect('/admin');
+});
+
 Route::get('/admin', function() {
     return redirect('/client');
 });
